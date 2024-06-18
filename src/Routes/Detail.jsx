@@ -27,7 +27,7 @@ const Detail = () => {
       <h4>Email: {medico.email}</h4>
       <h4>Telefono: {medico.phone}</h4>
       <h4>Sitio Web: {medico.website}</h4>
-      {/* <h4>{medico.company.name}</h4> */}
+      <h4>Compania: {medico.company?.name}</h4>
     </>
   )
 }
