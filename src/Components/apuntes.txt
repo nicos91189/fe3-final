@@ -1,0 +1,9 @@
+-el url de home creo que va a context
+-vi que quedo re bien andando el contextprovider en app
+    igual no logro que tome el context desde main
+-ya quedo pronto el layout. 
+-estoy queriendo ver como cambiar card.
+    ya que luego de mostrarse en favoritos sigue apareciendo el boton de favoritos
+    tendria que quedar por fuera de la card y solo renderizarse en home
+- agregue , h2, h3,h4, h5 al centrado en index.css
+- faltaria el boton como componente

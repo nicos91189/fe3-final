@@ -1,34 +1,57 @@
+import { createContext, useReducer, useEffect, useMemo, useContext } from "react";
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
 
 export const initialState = {
-  theme: "",
-   data: []
-  }
+  theme: "light", 
+  data: [], 
+  favoritos: JSON.parse(localStorage.getItem("favoritos")) || []
+};
 
 export const ContextGlobal = createContext(undefined);
 
-// const lsCart = JSON.parse(localStorage.getItem("cart")) || []; agregar
+const globalReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_THEME":
+      return { ...state, theme: action.payload };
+    case "SET_DATA":
+      return { ...state, data: action.payload };
+    case "ADD_FAV":
+      const nuevoFavorito = [...state.favoritos, action.payload];
+      localStorage.setItem('favoritos', JSON.stringify(nuevoFavorito));
+      return { ...state, favoritos: nuevoFavorito };
+    default:
+      return state;
+  }
+};
 
 export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
-  // const [medico, setMedico] = useState([]);
-  const [favs,setFavs]= useState();
+  const [state, dispatch] = useReducer(globalReducer, initialState);
+  const url = "https://jsonplaceholder.typicode.com/users";
 
-  // const url = 'https://jsonplaceholder.typicode.com/users';
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((response) => {
+        dispatch({ type: "SET_DATA", payload: response.data });
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
-  // useEffect(() =>{
-  //   axios(url).then((m)=> setMedico(m.data.medico));
-  // }, []);
+  const value = useMemo(() => ({
+    state,
+    dispatch,
+    toggleTheme: () => {
+      dispatch({ type: 'SET_THEME', payload: state.theme === "light" ? "dark" : "light" });
+    }
+  }), [state]);
 
   return (
-    <ContextGlobal.Provider value={{medico, favs, setFavs}}>
+    <ContextGlobal.Provider value={value}>
       {children}
     </ContextGlobal.Provider>
   );
 };
 
-export const useMedicoStates = () => {
+export const useGlobalContext = () => {
   return useContext(ContextGlobal);
 };
-

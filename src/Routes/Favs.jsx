@@ -1,38 +1,24 @@
 import React from "react";
 import Card from "../Components/Card";
-import {useMedicoStates} from "../Components/utils/global.context"
-
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+// import { useGlobalContext } from '../Components/utils/global.context';  // Ajusta la ruta según sea necesario
+import { useMedicoStates } from "../Components/utils/global.contextnico";
 
 const Favs = () => {
-  const {favs} = useMedicoStates()//agrege esta linea
+  // const { state } = useGlobalContext();  // Usa useGlobalContext para acceder al contexto global
+  // const { favoritos } = state;
+
+  const {fav} = useMedicoStates();
 
   return (
     <>
       <h1>Dentists Favs</h1>
       <div className="card-grid">
-        {/* este componente debe consumir los destacados del localStorage */}
-        {/* Deberan renderizar una Card por cada uno de ellos */}
-        {favs.map(favorito => <Card item={favorito} key={favorito.id}/>)}//agregue esta linea
+        {/* Renderiza una Card por cada favorito */}
+        {/* {favoritos.map(favorito => <Card key={favorito.id} item={favorito} />)} */}
+        {fav.map(favorito => <Card key={favorito.id} item={favorito} />)}
       </div>
     </>
   );
 };
 
 export default Favs;
-
-// import { useBeerContext } from "../Context/Context";
-// import Card from "../components/Card";
-
-// const Cart = () => {
-//   const { cart } = useBeerContext();
-//   return (
-//     <div className="grid">
-//       {cart.map((beer) => (  <Card data={beer} key={beer.id} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Cart;
