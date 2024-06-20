@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { routes } from './utils/routes';
+import { useMedicoStates } from '../Components/utils/global.contextnico';
+
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 const Navbar = () => {
-
   const navigate = useNavigate();
+  const { toggleTheme } = useMedicoStates();
 
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.body.className = newTheme;
-  }
   return (
     <nav>
       <button onClick={() => navigate(-1)}>volver</button>

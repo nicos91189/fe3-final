@@ -1,22 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-
-
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
 
   const params = useParams();
   const [medico, setMedico] = useState([]);
-  //llamado a la API con la endpoint
   const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
 
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   useEffect(() => {
-    axios(url).then((m) => setMedico(m.data))//console.log(m))//setMedicos(m.data.medicos))
+    axios(url).then((m) => setMedico(m.data))
   }, []);
-    //console.log(medico)
 
   return (
     <>

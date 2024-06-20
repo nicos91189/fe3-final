@@ -33,7 +33,6 @@ const Form = () => {
             setContacto({ ...contacto, nombre: event.target.value })
           }
         />
-        {/* <br /> */}
         <label>Email:</label>
         <input
           type='email'
@@ -41,7 +40,6 @@ const Form = () => {
             setContacto({ ...contacto, email: event.target.value })
           }
         />
-        {/* <br /> */}
         {/* <Button>Cargar</Button> */}
         <button>Enviar</button>
 
