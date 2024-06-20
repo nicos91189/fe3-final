@@ -21,6 +21,8 @@ const Navbar = () => {
         <h4>Favoritos</h4>
       </Link>
       <button onClick={toggleTheme}>Change theme</button>
+      {/* <button onClick={() => dispatch({ type: "SET_THEME"})}>Change theme</button> */}
+      
     </nav>
   )
 }
