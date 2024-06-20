@@ -1,11 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-// import { useMedicoStates } from '../Components/utils/global.contextnico';
 
 const Card = ({ item , children}) => {
-  // const addFav = () => {
-  //   dispatch({ type: 'ADD_FAV', payload: item });
-  // };
  
   return (
     <div className="card">
@@ -16,8 +12,6 @@ const Card = ({ item , children}) => {
         <h4>{item.id.address}</h4>
       </Link>
       {children}
-      {/* <button onClick={addFav} className="favButton">Add fav</button> */}
-      {/* <button onClick={()=> setFav((prevState)=>[...prevState, item])} className="favButton">Add fav</button> */}
     </div>
   );
 };

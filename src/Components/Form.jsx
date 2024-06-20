@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import Message from "./Message";
-import Button from "./Button";
 
 const Form = () => {
   const [contacto, setContacto] = useState({
@@ -40,7 +39,6 @@ const Form = () => {
             setContacto({ ...contacto, email: event.target.value })
           }
         />
-        {/* <Button>Cargar</Button> */}
         <button>Enviar</button>
 
         {show ? <Message contacto={contacto} /> : null}

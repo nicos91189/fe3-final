@@ -7,6 +7,7 @@ import Favs from "./Routes/Favs"
 import Layout from "./Layout/Layout";
 
 function App() {
+  
   return (
     <div className="App">
       <Routes>
