@@ -3,7 +3,8 @@ const Message = ({contacto}) => {
   
     return (
       <div>
-        <h4>nombre: {nombre}, email: {email}</h4>
+        <h4>nombre: {nombre}.
+          <br /> email: {email}</h4>
         <h4>Se registro con exito</h4>
       </div>
     )

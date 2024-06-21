@@ -16,7 +16,9 @@ const Home = () => {
       <div className='card-grid'>
         {state.medicos.map((medico) => (
           <Card item={medico} key={medico.id}>
-            <button onClick={() => addFav(medico)} className="favButton">Add fav</button>
+            <button onClick={() => addFav(medico)} className="favButton">
+              <img src='../images/favorito.jfif' alt="Añadir a favoritos" className="estrella" />
+            </button>
           </Card>
         ))}
       </div>

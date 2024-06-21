@@ -18,7 +18,7 @@ export const Context = ({ children }) => {
     const newTheme = state.theme === "light" ? "dark" : "light";
     dispatch({ type: "SET_THEME", payload: newTheme });
     document.body.className = newTheme;
-  }
+  };
 
   useEffect(() => {
     axios(url)
@@ -28,7 +28,6 @@ export const Context = ({ children }) => {
       .catch((err) => console.log(err));
   }, []);
   
-
   useEffect(() => {
     localStorage.setItem('fav', JSON.stringify(state.fav))
   }, [state.fav]);

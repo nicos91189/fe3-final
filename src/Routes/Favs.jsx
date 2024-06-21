@@ -15,7 +15,9 @@ const Favs = () => {
       <div className="card-grid">
         {sortedFavs.map(favorito => (
           <Card key={favorito.id} item={favorito}>
-            <button onClick={() => deleteFav(favorito)} className="favButton">Delete fav</button>
+            <button onClick={() => deleteFav(favorito)} className="favButton">
+              <img src="..\images\eliminar.png" alt="" />
+              </button>
           </Card>
         ))}
       </div>

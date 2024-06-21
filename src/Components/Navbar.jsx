@@ -5,7 +5,7 @@ import { useMedicoStates } from '../Components/utils/global.context';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { toggleTheme } = useMedicoStates();
+  const { toggleTheme, state } = useMedicoStates();
 
   return (
     <nav>
@@ -19,7 +19,13 @@ const Navbar = () => {
       <Link to={routes.favs}>
         <h4>Favoritos</h4>
       </Link>
-      <button onClick={toggleTheme}>Change theme</button>   
+      <button className='cambiarTema' onClick={toggleTheme}>
+      {state.theme === 'light' ? (
+          <img src="../images/luna.png" alt="luna" />
+        ) : (
+          <img src="../images/sol.png" alt="sol" />
+        )}
+      </button>
     </nav>
   )
 }
