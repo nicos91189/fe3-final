@@ -9,7 +9,6 @@ const Card = ({ item , children}) => {
         <h4>{item.name}</h4>
         <h4>{item.username}</h4>
         <h4>{item.id}</h4>
-        <h4>{item.id.address}</h4>
       </Link>
       {children}
     </div>

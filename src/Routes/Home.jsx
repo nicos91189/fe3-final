@@ -4,7 +4,10 @@ import { useMedicoStates } from '../Components/utils/global.context';
 const Home = () => {
   const { state, dispatch } = useMedicoStates();
   const addFav = (medico) => {
-    dispatch({ type: "ADD_FAV", payload: medico });
+    const findFav = state.fav.find(favMedico => favMedico.id === medico.id);
+    !findFav
+      ? dispatch({ type: "ADD_FAV", payload: medico })
+      : alert(`El médico ${medico.name} ya está en la lista de favoritos.`);
   };
 
   return (

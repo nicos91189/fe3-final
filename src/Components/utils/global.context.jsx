@@ -23,10 +23,11 @@ export const Context = ({ children }) => {
   useEffect(() => {
     axios(url)
       .then((med) =>
-        dispatch({ type: "GET_MEDICO", payload: med.data })
+        dispatch({ type: "GET_MEDICOS", payload: med.data })
       )
       .catch((err) => console.log(err));
   }, []);
+  
 
   useEffect(() => {
     localStorage.setItem('fav', JSON.stringify(state.fav))
